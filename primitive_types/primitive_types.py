@@ -4,7 +4,8 @@
 (this varies and depends on architecture)
 
 REMINDER - BITWISE OPERATORS:
-~ 1s COMPLEMENT (flip bits but remember about the sign bit - 0 for positive and 1 for
+https://realpython.com/python-bitwise-operators/
+~ BITWISE NOT/1s COMPLEMENT (flip bits but remember about the sign bit - 0 for positive and 1 for
 negative - this means that a +ve number will always become -ve and vice versa)
 & BITWISE AND (check bits, write 1 if both are 1)
 | BITWISE OR (check bits, write 1 if any of them is 1)
@@ -27,11 +28,38 @@ you compute the parity of a very large number of 64-bit words?
 Hint: Use a lookup table, but don't use 264 entries!
 """
 
+"""
+XOR:
+TRUE TRUE - FALSE
+FALSE TRUE - TRUE
+FALSE FALSE - FALSE
+TRUE FALSE - TRUE
+"""
 
-def compute_parity(x: int):
+
+def parity(x):  # from book
+    result = 0
+    while x:
+        # Notice that they don't do a sum of the result, this is very smart
+        result ^= x & 1
+        x >>= 1
+    return result
+
+
+def compute_parity(x: int):  # initial version
     number_of_ones = 0
     while x:
         number_of_ones += x & 1
         x >>= 1
-
     return int(number_of_ones % 2 != 0)
+
+# NOTICE THAT x % 2 == x & 1
+
+
+def count_bits_that_are_set_to_one(x):
+    number_of_bits_set_to_one = 0
+    while x:
+        number_of_bits_set_to_one += x & 1
+        x >>= 1
+
+    return number_of_bits_set_to_one
