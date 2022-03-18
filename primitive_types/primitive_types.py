@@ -46,7 +46,7 @@ def parity(x):  # from book
     return result
 
 
-def compute_parity(x: int):  # initial version
+def compute_parity(x: int):  # my initial version
     number_of_ones = 0
     while x:
         number_of_ones += x & 1
@@ -54,6 +54,14 @@ def compute_parity(x: int):  # initial version
     return int(number_of_ones % 2 != 0)
 
 # NOTICE THAT x % 2 == x & 1
+
+
+def parity_improved_version(x):
+    result = 0
+    while x:
+        result ^= 1
+        x &= x - 1  # Drops the lowest set bit of x.
+    return result
 
 
 def count_bits_that_are_set_to_one(x):
