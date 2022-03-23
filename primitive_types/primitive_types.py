@@ -64,6 +64,16 @@ def parity_improved_version(x):
     return result
 
 
+def parity_improved_version_2(x):
+    x ^= x >> 32
+    x ^= x >> 16
+    x ^= x >> 8
+    x ^= x >> 4
+    x ^= x >> 2
+    x ^= x >> 1
+    return x & 0x1
+
+
 def count_bits_that_are_set_to_one(x):
     number_of_bits_set_to_one = 0
     while x:

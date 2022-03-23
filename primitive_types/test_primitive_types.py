@@ -1,6 +1,7 @@
 import pytest
 
-from primitive_types.primitive_types import compute_parity, count_bits_that_are_set_to_one, parity
+from primitive_types.primitive_types import compute_parity, count_bits_that_are_set_to_one, parity, \
+    parity_improved_version, parity_improved_version_2
 
 
 @pytest.mark.parametrize("number, expected_parity", [
@@ -10,6 +11,8 @@ from primitive_types.primitive_types import compute_parity, count_bits_that_are_
 def test_returns_parity(number, expected_parity):
     assert parity(number) == expected_parity
     assert compute_parity(number) == expected_parity
+    assert parity_improved_version(number) == expected_parity
+    assert parity_improved_version_2(number) == expected_parity
 
 
 @pytest.mark.parametrize("number, expected_number", [
