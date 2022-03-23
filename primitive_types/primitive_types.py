@@ -37,6 +37,12 @@ TRUE FALSE - TRUE
 """
 
 
+"""
+BIT MASKING: 
+https://stackoverflow.com/questions/10493411/what-is-bit-masking
+"""
+
+
 def parity(x):  # from book
     result = 0
     while x:
