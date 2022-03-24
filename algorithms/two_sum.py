@@ -21,7 +21,8 @@ Output: [0,1]
 from typing import List
 
 
-def two_sum(nums: List[int], target: int) -> List[int]:  # This is n^2
+def two_sum(nums: List[int], target: int) -> List[int]:
+    # Time = O(n^2), Space = O(1) - we generally care more about time since we can usually increase memory
     index_1 = 0
     index_2 = 1
     while index_1 < len(nums):
@@ -33,4 +34,24 @@ def two_sum(nums: List[int], target: int) -> List[int]:  # This is n^2
         index_2 = index_1 + 1
 
 
+def two_sum_suggested(nums: List[int], target: int) -> List[int]:  # also brute force
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[j] + nums[i] == target:
+                return [i, j]
+
+
 # TODO: use hash map or sorting algorithm to reduce time complexity
+
+def two_sum_improved(nums: List[int], target: int) -> List[int]:  # Time = O(n), Space = O(n)
+    """
+    Here we will use a hash map where we will store each number that
+    we've seen so far plus its index
+    """
+    values_map = {}  # key: number, value: index
+    for i in range(len(nums)):
+        current = nums[i]
+        possible_answer = target - current
+        if possible_answer in values_map:
+            return [values_map.get(possible_answer), i]
+        values_map[current] = i
