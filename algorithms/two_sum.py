@@ -22,12 +22,15 @@ from typing import List
 
 
 def two_sum(nums: List[int], target: int) -> List[int]:  # This is n^2
-    result = []
-    for index_1, number_1 in enumerate(nums):
-        for index_2, number_2 in enumerate(nums[1:]):
-            if number_1 + number_2 == target:
-                index_2 += 1
+    index_1 = 0
+    index_2 = 1
+    while index_1 < len(nums):
+        while index_2 < len(nums):
+            if nums[index_1] + nums[index_2] == target:
                 return [index_1, index_2]
-    return result[:2]
+            index_2 += 1
+        index_1 += 1
+        index_2 = index_1 + 1
+
 
 # TODO: use hash map or sorting algorithm to reduce time complexity
