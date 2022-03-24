@@ -78,3 +78,21 @@ class LinkedList:
             prev_node = node.next
 
         raise Exception(f"Node with data {target_node_data} is not present in list")
+
+    def remove_node(self, target_node_data):
+        if self.head is None:
+            raise Exception("Can't remove node from empty list")
+
+        if self.head.data == target_node_data:
+            next_node = self.head.next
+            self.head = next_node
+            return
+
+        previous_node = self.head
+        for node in self:
+            if previous_node.next.data == target_node_data:
+                previous_node.next = previous_node.next.next
+                return
+            previous_node = node
+
+        raise Exception(f"Node with data {target_node_data} is not present in list")

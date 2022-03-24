@@ -70,3 +70,10 @@ def test_raises_when_adding_a_node_before_an_item_when_item_is_not_present_in_li
 
     with pytest.raises(Exception):
         l1.add_before(target_node_data=4, new_node=Node(4))
+
+
+def test_removes_node_from_list():
+    l1 = LinkedList(nodes=[7, 33, 19, 8, 0, 11])
+    l1.remove_node(target_node_data=8)
+
+    assert l1.__repr__() == "7 -> 33 -> 19 -> 0 -> 11"
