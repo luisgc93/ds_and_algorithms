@@ -15,7 +15,7 @@ class Node:
 class LinkedList:
     def __init__(self, nodes=Optional[List[Node]]):
         self.head = None
-        if nodes is not None:
+        if nodes:
             node = Node(data=nodes.pop(0))
             self.head = node
             for element in nodes:
@@ -36,11 +36,29 @@ class LinkedList:
             yield node
             node = node.next
 
-    def add_first(self, node: Node):
-        pass
+    def add_first(self, new_node: Node):
+        new_node.next = self.head
+        self.head = new_node
 
-    def add_last(self, node: Node):
-        pass
+    def add_last(self, new_node: Node):
+        if self.head is None:
+            self.head = new_node
+            return
+        # this traverses the whole list of elements and sets
+        # current_node to the last element
+        for current_node in self:
+            pass
 
-    def add_after(self, target_node_data, node: Node):
-        pass
+        current_node.next = new_node
+
+    def add_after(self, target_node_data, new_node: Node):
+        if self.head is None:
+            raise Exception("Linked list is empty")
+        for node in self:
+            if node.data == target_node_data:
+                nex_item = node.next
+                node.next = new_node
+                new_node.next = nex_item
+                return
+
+        raise Exception(f"Node with data {target_node_data} is not present in list")
