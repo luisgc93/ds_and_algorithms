@@ -62,3 +62,19 @@ class LinkedList:
                 return
 
         raise Exception(f"Node with data {target_node_data} is not present in list")
+
+    def add_before(self, target_node_data, new_node: Node):
+        if self.head is None:
+            raise Exception("Linked list is empty")
+
+        if self.head.data == target_node_data:
+            return self.add_first(new_node)
+
+        prev_node = self.head
+        for node in self:
+            # find previous item
+            if prev_node.next.data == target_node_data:
+                return self.add_after(prev_node.data, new_node)
+            prev_node = node.next
+
+        raise Exception(f"Node with data {target_node_data} is not present in list")
