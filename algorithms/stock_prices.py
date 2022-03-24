@@ -1,4 +1,5 @@
 """
+** Taken from Elements of Programming Interviews in Python **
 Design an algorithm that determines the maximum profit that could
 have been made by buying and then selling a single share over a
 given day range, subject to the constraint that the buy and the

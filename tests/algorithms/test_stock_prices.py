@@ -1,6 +1,6 @@
 import pytest
 
-from stock_prices.stock_prices import calculate_highest_profit
+from algorithms.stock_prices import calculate_highest_profit
 
 
 @pytest.mark.parametrize("start_prices, expected_highest_profit", [

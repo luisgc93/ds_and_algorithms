@@ -1,4 +1,6 @@
 """
+** Taken from Elements of Programming Interviews in Python **
+
 *1 byte = 8 bits
 *In computing, a word is the natural unit of data used by a particular processor design
 (this varies and depends on architecture)

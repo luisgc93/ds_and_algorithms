@@ -1,6 +1,6 @@
 import pytest
 
-from primitive_types.primitive_types import compute_parity, count_bits_that_are_set_to_one, parity, \
+from data_structures.primitive_types import compute_parity, count_bits_that_are_set_to_one, parity, \
     parity_improved_version, parity_improved_version_2
 
 
