@@ -1,3 +1,3 @@
 # ds_and_algorithms
 
-Problems and solutions (with tests) from the book Elements of Programming Interviews in Python.
+DS & algorithm problems from Leetcode as well as Elements of Programming Interviews in Python.
