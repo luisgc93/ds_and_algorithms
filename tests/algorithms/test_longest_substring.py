@@ -5,6 +5,7 @@ from algorithms.longest_substring import length_of_longest_substring_brute_force
 
 @pytest.mark.parametrize("string, expected_result", [
     ("abcabcbb", 3),
+    ("abccbcbb", 3),
     ("bbbbb", 1),
     ("pwwkew", 3),
     (" ", 1),
