@@ -47,6 +47,7 @@ def length_of_longest_substring_optimized(string: str) -> int:
             sub += char
             ans = max(ans, len(sub))
         else:
+            # create new substring, starting again
             cut_index = sub.index(char)
             sub = sub[cut_index + 1:] + char
     return ans
