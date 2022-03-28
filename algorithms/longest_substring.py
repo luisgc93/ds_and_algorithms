@@ -37,3 +37,16 @@ def length_of_longest_substring_brute_force(string: str) -> int:
 
     substrings.sort(key=len)
     return len(substrings[-1]) if substrings else 0
+
+
+def length_of_longest_substring_optimized(string: str) -> int:
+    ans = 0  # keep track of longest substring len seen so far
+    sub = ''
+    for char in string:
+        if char not in sub:
+            sub += char
+            ans = max(ans, len(sub))
+        else:
+            cut_index = sub.index(char)
+            sub = sub[cut_index + 1:] + char
+    return ans

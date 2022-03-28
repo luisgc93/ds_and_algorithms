@@ -1,6 +1,6 @@
 import pytest
 
-from algorithms.longest_substring import length_of_longest_substring_brute_force
+from algorithms.longest_substring import length_of_longest_substring_brute_force, length_of_longest_substring_optimized
 
 
 @pytest.mark.parametrize("string, expected_result", [
@@ -14,3 +14,4 @@ from algorithms.longest_substring import length_of_longest_substring_brute_force
 ])
 def test_longest_substring(string, expected_result):
     assert length_of_longest_substring_brute_force(string) == expected_result
+    assert length_of_longest_substring_optimized(string) == expected_result
