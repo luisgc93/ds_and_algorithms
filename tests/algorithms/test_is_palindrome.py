@@ -11,6 +11,6 @@ from algorithms.palindrome_number import is_palindrome, is_palindrome_without_st
     (456654, True),
     (1, True),
 ])
-def test_two_sum(number, expected_result):
+def test_is_palindrome(number, expected_result):
     assert is_palindrome(number) == expected_result
     assert is_palindrome_without_string_conversion(number) == expected_result
