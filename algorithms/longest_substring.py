@@ -23,22 +23,17 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 def length_of_longest_substring_brute_force(string: str) -> int:
     """
-    This approach involves finding every single substring and then checking whether it contains
-    duplicated letters or not. Results in Memory Limit Exceeded error for very large strings but
-    works with small inputs.
+    This approach involves storing every single substring that does not contain duplicated letters.
+    Results in Time Limit Exceeded error for very large strings but works with small inputs.
     """
     if len(string) == 1:
         return 1
     substrings = []
     while len(string) > 1:
         for i in range(1, len(string) + 1):
-            substrings.append(string[:i])
+            if len(string[:i]) == len(set(string[:i])):
+                substrings.append(string[:i])
         string = string[1:]
 
-    substrings_without_duplicates = [
-        substring for substring in substrings
-        if len(substring) == len(set(substring))
-    ]
-
-    substrings_without_duplicates.sort(key=len)
-    return len(substrings_without_duplicates[-1]) if substrings_without_duplicates else 0
+    substrings.sort(key=len)
+    return len(substrings[-1]) if substrings else 0
