@@ -16,13 +16,13 @@ from typing import List
 
 def calculate_highest_profit(start_prices: List[int]) -> int:
     # TODO: fix algorithm to handle buys at multiple prices
-    highest_profit = None
+    highest_profit = 0
     for i in range(len(start_prices)):
         price = start_prices[i]
         next_prices = start_prices[i:]
         for j in range(len(next_prices)):
             next_price = next_prices[j]
-            if highest_profit is None or next_price - price > highest_profit:
+            if next_price - price > highest_profit:
                 highest_profit = next_price - price
 
     return highest_profit
