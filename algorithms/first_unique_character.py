@@ -16,10 +16,11 @@ def get_unique_character_improved_performance(input_string: str) -> int:
     """
     Here we use a dictionary for better performance
     https://towardsdatascience.com/faster-lookups-in-python-1d7503e9cd38
+    https://stackoverflow.com/questions/513882/python-list-vs-dict-for-look-up-table
     """
     frequency = {}
     for character in input_string:
-        if character not in frequency:
+        if character not in frequency:  # lookup in a dict is O(1)
             frequency[character] = 1
         else:
             frequency[character] += 1
