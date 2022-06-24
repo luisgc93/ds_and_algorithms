@@ -6,6 +6,7 @@ from algorithms.first_unique_character import get_unique_character, get_unique_c
     ("statistics", 3),
     ("hackthegame", 3),
     ("people", 3),
+    ("aaaa", -1),
 ])
 def test_first_unique_character(input_string, expected_output):
 
