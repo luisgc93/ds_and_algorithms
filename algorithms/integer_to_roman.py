@@ -43,15 +43,12 @@ def _find_closest_number_that_has_its_own_character(number: int) -> int:
 
 
 def integer_to_roman(number: int) -> str:
-    # roman numerals are written in the order that they're read (largest to smallest)
-    # steps:
-    # 1. if number has its own character (stored in dict) -> return number
-    # 2. else, split the number into powers of 10 e.g. 965 = [(9, 100), (6, 10), (5, 1)]
-    # 3. if number has its own character (stored in dict) -> return number and add to list
-    # 4. else, for each number part, find the closest of numbers that has its own character
-    # e.g. 60 -> 50
-    # 5. if number is 4 or 9 -> get closest and use subtraction method e.g. 90 = XC
-    # 6. else -> get closest and use addition method e.g. 60 = LX
+    """
+    This approach has good performance but high memory footprint
+    Leetcode submission stats:
+    Runtime: 66 ms - better than 67.8 % of submissions
+    Memory: 14 MB - better than 6 % of submissions
+    """
 
     # 1st item in tuple is the character for the number, the 2nd one the is the character
     # that gets added or subtracted
