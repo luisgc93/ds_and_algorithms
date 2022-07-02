@@ -16,7 +16,7 @@ C can be placed before D (500) and M (1000) to make 400 and 900.
 """
 from typing import Tuple, List
 
-NUMBERS_THAT_HAVE_ITS_OWN_CHAR = [1, 5, 50, 100, 500, 1000]
+NUMBERS_THAT_HAVE_ITS_OWN_CHAR = [1, 5, 10, 50, 100, 500, 1000]
 
 
 def _split_into_powers_of_10(number: int) -> List[Tuple]:
@@ -36,6 +36,9 @@ def _find_closest_number_that_has_its_own_character(number: int) -> int:
     deltas = [abs(n - number) for n in NUMBERS_THAT_HAVE_ITS_OWN_CHAR]
     lowest_diff = min(deltas)
     index = deltas.index(lowest_diff)
+    # if number is multiple of 8 - we need to subtract 1
+    if number in [8, 80, 800]:
+        index = index - 1
     return NUMBERS_THAT_HAVE_ITS_OWN_CHAR[index]
 
 
@@ -87,8 +90,12 @@ def integer_to_roman(number: int) -> str:
                     + roman_dict.get(closest_number)[0]
                 result.append(number_in_roman)
             else:
+                if number % closest_number == 0:
+                    number_in_roman = number // closest_number * roman_dict.get(closest_number)[0]
+                    result.append(number_in_roman)
+                    continue
                 # 6. else -> get closest and use addition method e.g. 60 = LX
-                number_of_times_we_add = number - closest_number
+                number_of_times_we_add = (number - closest_number) // roman_dict.get(closest_number)[2]
                 number_in_roman = roman_dict.get(closest_number)[0] + \
                     (roman_dict.get(closest_number)[1] * number_of_times_we_add)
                 result.append(number_in_roman)
