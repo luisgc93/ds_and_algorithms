@@ -98,3 +98,5 @@ def integer_to_roman(number: int) -> str:
                 result.append(number_in_roman)
 
     return "".join(result)
+
+# TODO : Improve the current garbage with this approach https://www.youtube.com/watch?v=ohBNdSJyLh8

@@ -2,8 +2,8 @@ import pytest
 
 from algorithms.integer_to_roman import (
     integer_to_roman,
-    _split_into_powers_of_10, # noqa
-    _find_closest_number_that_has_its_own_character # noqa
+    _split_into_powers_of_10,  # noqa
+    _find_closest_number_that_has_its_own_character, intToRoman  # noqa
 )
 
 
